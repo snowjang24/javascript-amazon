@@ -21,16 +21,15 @@ $font-size-sub-title: 1.5rem;
     justify-content: center;
   }
   &__card {
+    font-size: $font-size-card-title;
     color: $color-white;
+    text-align: center;
     width: 200px;
     height: 70px;
-    text-align: center;
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: $font-size-card-title;
-    word-wrap: break-word;
     &_blue {
       background-color: $color-blue;
     }
@@ -57,8 +56,8 @@ $font-size-sub-title: 1.5rem;
     position: absolute;
     top: 0;
     left: 50%;
+    transform: translateX(-200%);
     width: 800px;
-    transform: translateX(-50%);
     display: flex;
     &__img-container {
       width: 240px;
@@ -89,5 +88,14 @@ $font-size-sub-title: 1.5rem;
     &_right {
       right: 40px;
     }
+  }
+  .prev {
+    transform: translateX(-150%);
+  }
+  .current {
+    transform: translateX(-50%);
+  }
+  .next {
+    transform: translateX(50%);
   }
 }
