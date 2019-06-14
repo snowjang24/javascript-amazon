@@ -66,15 +66,17 @@
 }
 
 .contents .item {
+  background-color: grey;
   position: absolute;
   top: 0;
   left: 50%;
-  -webkit-transform: translateX(-200%);
-          transform: translateX(-200%);
   width: 800px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  opacity: 0;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
 }
 
 .contents .item__img-container {
@@ -91,6 +93,31 @@
 
 .contents .item .desc__title {
   font-size: 1.5rem;
+}
+
+.contents .item:nth-child(1) {
+  background-color: red;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 1;
+}
+
+.contents .item:nth-child(2) {
+  background-color: blue;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.contents .item:nth-child(3) {
+  background-color: green;
+  -webkit-transform: translateX(200%);
+          transform: translateX(200%);
+}
+
+.contents .item:nth-child(4) {
+  background-color: yellow;
+  -webkit-transform: translateX(-200%);
+          transform: translateX(-200%);
 }
 
 .contents__button {
@@ -111,20 +138,5 @@
 
 .contents__button_right {
   right: 40px;
-}
-
-.contents .prev {
-  -webkit-transform: translateX(-150%);
-          transform: translateX(-150%);
-}
-
-.contents .current {
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.contents .next {
-  -webkit-transform: translateX(50%);
-          transform: translateX(50%);
 }
 /*# sourceMappingURL=Carousel.css.map */

@@ -53,12 +53,16 @@ $font-size-sub-title: 1.5rem;
     overflow: hidden;
   }
   .item {
+    background-color: grey;
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-200%);
     width: 800px;
     display: flex;
+    opacity: 0;
+
+    transition: all 0.8s;
+
     &__img-container {
       width: 240px;
       height: 240px;
@@ -71,6 +75,23 @@ $font-size-sub-title: 1.5rem;
       &__title {
         font-size: $font-size-sub-title;
       }
+    }
+    &:nth-child(1) {
+      background-color: red;
+      transform: translateX(-50%);
+      opacity: 1;
+    }
+    &:nth-child(2) {
+      background-color: blue;
+      transform: translateX(100%);
+    }
+    &:nth-child(3) {
+      background-color: green;
+      transform: translateX(200%);
+    }
+    &:nth-child(4) {
+      background-color: yellow;
+      transform: translateX(-200%);
     }
   }
   &__button {
@@ -88,14 +109,5 @@ $font-size-sub-title: 1.5rem;
     &_right {
       right: 40px;
     }
-  }
-  .prev {
-    transform: translateX(-150%);
-  }
-  .current {
-    transform: translateX(-50%);
-  }
-  .next {
-    transform: translateX(50%);
   }
 }
