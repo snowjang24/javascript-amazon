@@ -75,10 +75,6 @@ $font-size-sub-title: 1.5rem;
         font-size: $font-size-sub-title;
       }
     }
-    &:nth-child(1) {
-      transform: translateX(-50%);
-      opacity: 1;
-    }
   }
   &__button {
     display: inline-block;
