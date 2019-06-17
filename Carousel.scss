@@ -4,11 +4,11 @@ $color-pink: #aa0068;
 $color-cyan: #018577;
 $color-orange: #e65d18;
 
-$font-size-card-title: 1.2rem;
+$font-size-card-title: 1rem;
 $font-size-sub-title: 1.5rem;
 
 * {
-  box-sizing: padding-box;
+  box-sizing: border-box;
 }
 
 .carousel {
@@ -24,8 +24,8 @@ $font-size-sub-title: 1.5rem;
     font-size: $font-size-card-title;
     color: $color-white;
     text-align: center;
-    width: 200px;
-    height: 70px;
+    width: 160px;
+    height: 60px;
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
@@ -46,27 +46,26 @@ $font-size-sub-title: 1.5rem;
 }
 
 .contents {
-  height: 80%;
+  height: 250px;
   position: relative;
   > ol {
     height: 100%;
     overflow: hidden;
   }
   .item {
-    background-color: grey;
     position: absolute;
     top: 0;
     left: 50%;
-    width: 800px;
+    width: 640px;
     display: flex;
     opacity: 0;
 
-    transition: all 0.8s;
+    transition: all 0.5s;
 
-    &__img-container {
+    &__img-container > img {
       width: 240px;
-      height: 240px;
     }
+
     &__desc {
       flex: 1;
       margin-left: 24px;
@@ -77,30 +76,17 @@ $font-size-sub-title: 1.5rem;
       }
     }
     &:nth-child(1) {
-      background-color: red;
       transform: translateX(-50%);
       opacity: 1;
-    }
-    &:nth-child(2) {
-      background-color: blue;
-      transform: translateX(100%);
-    }
-    &:nth-child(3) {
-      background-color: green;
-      transform: translateX(200%);
-    }
-    &:nth-child(4) {
-      background-color: yellow;
-      transform: translateX(-200%);
     }
   }
   &__button {
     display: inline-block;
     position: absolute;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     background-color: grey;
-    border-radius: 18px;
+    border-radius: 20px;
     top: 50%;
     transform: translateY(-50%);
     &_left {

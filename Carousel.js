@@ -6,47 +6,43 @@ class Carousel {
     this.currentIndex = 0;
   }
 
-  init() {
-    this.registerEvents();
+  addStyleToItem(index) {
+    let currentItemStyle = document.querySelector(
+      `.item:nth-child(${((this.currentIndex +
+        ((index + (this.cardNumber - 1)) % this.cardNumber)) %
+        this.cardNumber) +
+        1})`
+    ).style;
+    currentItemStyle.transform = `translateX(${-150 + i * 100}%)`;
+    currentItemStyle.opacity = "0";
+    if (i === 1) {
+      currentItemStyle.opacity = "1";
+    }
+  }
+
+  moveCurrentIndex(direction) {
+    let index =
+      direction === "left" ? this.currentIndex - 1 : this.currentIndex + 1;
+    if (index < 0) index += this.cardNumber;
+    this.currentIndex = index % this.cardNumber;
+    console.log(this.currentIndex);
   }
 
   onClickHandler(event) {
+    const direction = event.target.id;
     event.preventDefault();
-    this.currentIndex = (this.currentIndex + 1) % this.cardNumber;
-    console.log(this.currentIndex);
-    // for (let i; i < this.cardNumber; i++) {
-    //   document.querySelector(
-    //     `.item:nth-child(${((this.currentIndex + ((i + 3) % 4)) % 4) + 1})`
-    //   ).style.transform = `translateX(${toString(-150 + i * 100)}%)`;
-    // }
-    document.querySelector(
-      `.item:nth-child(${((this.currentIndex + 3) % 4) + 1})`
-    ).style.transform = `translateX(-150%)`;
-    document.querySelector(
-      `.item:nth-child(${(this.currentIndex % 4) + 1})`
-    ).style.transform = `translateX(-50%)`;
-    document.querySelector(
-      `.item:nth-child(${((this.currentIndex + 1) % 4) + 1})`
-    ).style.transform = `translateX(50%)`;
-    document.querySelector(
-      `.item:nth-child(${((this.currentIndex + 2) % 4) + 1})`
-    ).style.transform = `translateX(150%)`;
-
-    document.querySelector(
-      `.item:nth-child(${(this.currentIndex % 4) + 1})`
-    ).style.opacity = `1`;
-    document.querySelector(
-      `.item:nth-child(${((this.currentIndex + 1) % 4) + 1})`
-    ).style.opacity = `0`;
-    document.querySelector(
-      `.item:nth-child(${((this.currentIndex + 2) % 4) + 1})`
-    ).style.opacity = `0`;
-    document.querySelector(
-      `.item:nth-child(${((this.currentIndex + 3) % 4) + 1})`
-    ).style.opacity = `0`;
+    this.moveCurrentIndex(direction);
+    for (let i = 0; i < this.cardNumber; i++) {
+      this.addStyleToItem(i);
+    }
   }
+
   registerEvents() {
+    this.leftBtn.addEventListener("click", this.onClickHandler.bind(this));
     this.rightBtn.addEventListener("click", this.onClickHandler.bind(this));
+  }
+  init() {
+    this.registerEvents();
   }
 }
 
