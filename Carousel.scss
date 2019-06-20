@@ -3,16 +3,32 @@ $color-blue: #2392c0;
 $color-pink: #aa0068;
 $color-cyan: #018577;
 $color-orange: #e65d18;
+$color-grey: #a8b7b8;
 
-$font-size-card-title: 1rem;
-$font-size-sub-title: 1.5rem;
+@function calcRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+$font-size-menu: calcRem(14px);
+$font-size-basic: 1rem;
+$font-size-title: calcRem(24px);
+
+$left-arrow-icon-path: "./images/left-chervron.svg";
 
 * {
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Noto Sans", sans-serif;
+}
+
 .carousel {
   height: 600px;
+  &__contents {
+    margin: 0 auto;
+  }
 }
 .title {
   height: 20%;
@@ -21,15 +37,16 @@ $font-size-sub-title: 1.5rem;
     justify-content: center;
   }
   &__card {
-    font-size: $font-size-card-title;
+    font-size: $font-size-menu;
     color: $color-white;
     text-align: center;
-    width: 160px;
+    width: 180px;
     height: 60px;
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0 3px;
     &_blue {
       background-color: $color-blue;
     }
@@ -48,6 +65,8 @@ $font-size-sub-title: 1.5rem;
 .contents {
   height: 250px;
   position: relative;
+  max-width: 860px;
+  overflow: hidden;
   > ol {
     height: 100%;
     overflow: hidden;
@@ -56,11 +75,10 @@ $font-size-sub-title: 1.5rem;
     position: absolute;
     top: 0;
     left: 50%;
-    width: 640px;
+    width: 720px;
     display: flex;
+    align-items: center;
     opacity: 0;
-
-    transition: all 0.5s;
 
     &__img-container > img {
       width: 240px;
@@ -68,11 +86,20 @@ $font-size-sub-title: 1.5rem;
 
     &__desc {
       flex: 1;
-      margin-left: 24px;
+      margin-left: calcRem(24px);
     }
     .desc {
       &__title {
-        font-size: $font-size-sub-title;
+        font-size: $font-size-title;
+        margin-bottom: calcRem(24px);
+      }
+      &__text {
+        font-size: $font-size-basic;
+        list-style: disc;
+        padding-left: calcRem(12px);
+        > li {
+          margin-bottom: calcRem(10px);
+        }
       }
     }
   }
@@ -81,15 +108,17 @@ $font-size-sub-title: 1.5rem;
     position: absolute;
     width: 40px;
     height: 40px;
-    background-color: grey;
     border-radius: 20px;
     top: 50%;
-    transform: translateY(-50%);
     &_left {
-      left: 40px;
+      left: 16px;
+      background-image: url($left-arrow-icon-path);
+      transform: translateY(-50%);
     }
     &_right {
-      right: 40px;
+      right: 16px;
+      background-image: url($left-arrow-icon-path);
+      transform: rotate(180deg) translateY(50%);
     }
   }
 }
